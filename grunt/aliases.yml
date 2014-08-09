@@ -1,0 +1,3 @@
+test: mochacov
+
+default: test
