@@ -21,7 +21,10 @@ describe('travi-js-library generator', function () {
     var expected = [
       // add files you expect to exist here.
       '.jshintrc',
-      '.editorconfig'
+      '.editorconfig',
+      'package.json',
+      'bower.json',
+      'Gruntfile.js'
     ];
 
     helpers.mockPrompt(this.app, {
