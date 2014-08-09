@@ -1,3 +1,7 @@
+lint: jshint
+
 test: mochacov
 
-default: test
+default:
+  - lint
+  - test

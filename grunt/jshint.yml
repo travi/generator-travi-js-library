@@ -1,0 +1,5 @@
+files:
+  - "app/**/*.js"
+  - "test/**/*.spec.js"
+options:
+  jshintrc: true
