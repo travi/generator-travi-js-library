@@ -1,8 +1,6 @@
 options:
-    reporters: 'spec'
-    ui: 'bdd'
-coverage:
-    options:
-        coveralls: true
+  reporters: 'spec'
+  ui: 'bdd'
+  coveralls: true
 all:
   - 'test/**/*.spec.js'
