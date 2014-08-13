@@ -3,6 +3,7 @@
 [![Build Status](http://img.shields.io/travis/travi/generator-travi-js-library.svg?style=flat)](https://travis-ci.org/travi/generator-travi-js-library)
 [![Coverage Status](http://img.shields.io/coveralls/travi/generator-travi-js-library.svg?style=flat)](https://coveralls.io/r/travi/generator-travi-js-library?branch=master)
 [![Dependency Status](http://img.shields.io/gemnasium/travi/generator-travi-js-library.svg?style=flat)](https://gemnasium.com/travi/generator-travi-js-library)
+[![Code Climate](http://img.shields.io/codeclimate/github/travi/generator-travi-js-library.svg?style=flat)](https://codeclimate.com/github/travi/generator-travi-js-library)
 
 > [Yeoman](http://yeoman.io) generator
 
