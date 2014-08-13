@@ -1,4 +1,7 @@
-# generator-travi-js-library [![Build Status](http://img.shields.io/travis/travi/generator-travi-js-library.svg?style=flat)](https://travis-ci.org/travi/generator-travi-js-library)
+# generator-travi-js-library 
+
+[![Build Status](http://img.shields.io/travis/travi/generator-travi-js-library.svg?style=flat)](https://travis-ci.org/travi/generator-travi-js-library)
+[![Coverage Status](http://img.shields.io/coveralls/travi/generator-travi-js-library.svg?style=flat)](https://coveralls.io/r/travi/generator-travi-js-library?branch=master)
 
 > [Yeoman](http://yeoman.io) generator
 
