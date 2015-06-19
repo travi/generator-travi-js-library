@@ -16,7 +16,7 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
     this.copy('git/gitignore', '.gitignore');
   },
 
-  init: function () {
+  initializing: function () {
     this.pkg = require('../package.json');
 
     this.on('end', function () {
@@ -26,7 +26,7 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
     });
   },
 
-  askFor: function () {
+  prompting: function () {
     var done = this.async();
 
     // Have Yeoman greet the user.
@@ -54,7 +54,7 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
     this._grunt();
   },
 
-  projectfiles: function () {
+  configuring: function () {
     this.copy('editorconfig', '.editorconfig');
     this._git();
   }
