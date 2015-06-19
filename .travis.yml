@@ -1,12 +1,11 @@
 language: node_js
 
-node_js:
-  - '0.10'
+node_js: '0.10'
 
 before_install:
   - currentfolder=${PWD##*/}
   - if [ "$currentfolder" != 'generator-travi-js-library' ]; then cd .. && eval "mv $currentfolder generator-travi-js-library" && cd generator-travi-js-library; fi
 
+before_script: npm install -g grunt-cli
 
-before_script:
-  - npm install -g grunt-cli
+after_success: grunt mochacov:coverage

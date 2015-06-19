@@ -1,6 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
+var mkdirp = require('mkdirp');
 
 var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
   init: function () {
@@ -34,8 +35,8 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
   },
 
   app: function () {
-    this.mkdir('app');
-    this.mkdir('app/templates');
+    mkdirp('app');
+    mkdirp('app/templates');
 
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');

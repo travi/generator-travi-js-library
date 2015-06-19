@@ -1,6 +1,10 @@
 lint: jshint
 
-test: mochacov
+unit: mochacov:unit
+integration: cucumberjs:integration
+
+test:
+  - integration
 
 default:
   - lint
