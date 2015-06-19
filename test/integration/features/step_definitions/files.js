@@ -13,11 +13,14 @@ module.exports = function () {
 
   this.Then(/^the core files should be present$/, function (callback) {
       assert.file([
-        '.jshintrc',
+        '.gitattributes',
+        '.gitignore',
         '.editorconfig',
         'package.json',
-        'bower.json',
-        'Gruntfile.js'
+        'Gruntfile.js',
+        'grunt/aliases.yml',
+        'grunt/jslint.yml',
+        'grunt/jscs.yml'
       ]);
 
       callback();
