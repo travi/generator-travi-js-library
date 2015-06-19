@@ -4,14 +4,14 @@ var yosay = require('yosay');
 var mkdirp = require('mkdirp');
 
 var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
-  grunt: function () {
+  _grunt: function () {
     this.copy('grunt/_Gruntfile.js', 'Gruntfile.js');
     this.copy('grunt/_aliases.yml', 'grunt/aliases.yml');
     this.copy('grunt/_jslint.yml', 'grunt/jslint.yml');
     this.copy('grunt/_jscs.yml', 'grunt/jscs.yml');
   },
 
-  git: function () {
+  _git: function () {
     this.copy('git/gitattributes', '.gitattributes');
     this.copy('git/gitignore', '.gitignore');
   },
@@ -51,12 +51,12 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
     mkdirp('app/templates');
 
     this.copy('_package.json', 'package.json');
-    this.grunt();
+    this._grunt();
   },
 
   projectfiles: function () {
     this.copy('editorconfig', '.editorconfig');
-    this.git();
+    this._git();
   }
 });
 
