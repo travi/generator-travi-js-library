@@ -57,6 +57,23 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
   configuring: function () {
     this.copy('editorconfig', '.editorconfig');
     this._git();
+  },
+
+  install: function () {
+    console.log('installing');
+    this.npmInstall([
+      'load-grunt-config'
+    ], {'saveDev': true});
+
+    this.installDependencies({
+      npm: true,
+      bower: false,
+      skipInstall: false,
+      skipMessage: false,
+      callback: function () {
+        console.log('dependency installation complete');
+      }
+    });
   }
 });
 
