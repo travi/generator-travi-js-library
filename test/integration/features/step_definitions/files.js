@@ -26,6 +26,8 @@ module.exports = function () {
         'grunt/jscs.yml'
       ]);
 
+      assert.fileContent('.gitattributes', /^\* text=auto\n$/);
+
       callback();
   });
 
