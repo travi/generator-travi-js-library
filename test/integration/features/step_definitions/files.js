@@ -11,6 +11,7 @@ module.exports = function () {
     helpers.run(path.join( __dirname, '../../../../app'))
       .inDir(tempDir)
       .withPrompts({'someOption': true})
+      .withOptions({skipInstall: false})
       .on('end', callback);
   });
 
@@ -35,10 +36,8 @@ module.exports = function () {
     fs.readFile(path.join(tempDir, 'package.json'), 'utf8', function (err, content) {
       var devDeps = JSON.parse(content).devDependencies;
 
-      console.log(content);
-      console.log(devDeps);
-
       assert(_.has(devDeps, 'load-grunt-config'));
+      assert(_.has(devDeps, 'time-grunt'));
 
       callback();
     });

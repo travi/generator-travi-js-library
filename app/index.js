@@ -16,16 +16,6 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
     this.copy('git/gitignore', '.gitignore');
   },
 
-  initializing: function () {
-    this.pkg = require('../package.json');
-
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.installDependencies();
-      }
-    });
-  },
-
   prompting: function () {
     var done = this.async();
 
@@ -60,9 +50,9 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
   },
 
   install: function () {
-    console.log('installing');
     this.npmInstall([
-      'load-grunt-config'
+      'load-grunt-config',
+      'time-grunt'
     ], {'saveDev': true});
 
     this.installDependencies({
