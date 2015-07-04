@@ -44,6 +44,12 @@
     "grunt-mocha-cov": "^0.4.0",
     "load-grunt-config": "^0.17.1",
     "mocha": "^2.2.5",
+    "proxyquire": "^1.6.0",
+    "referee": "^1.1.1",
+    "referee-sinon": "^1.0.2",
+    "setup-referee-sinon": "^0.3.0",
+    "sinon": "^1.15.4",
+    "sinon-as-promised": "^4.0.0",
     "time-grunt": "^1.2.1"
   },
   "peerDependencies": {
