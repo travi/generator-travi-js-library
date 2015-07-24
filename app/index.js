@@ -1,7 +1,6 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
-var mkdirp = require('mkdirp');
 
 var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
   _grunt: function () {
