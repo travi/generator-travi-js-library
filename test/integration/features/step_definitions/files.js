@@ -11,10 +11,24 @@ require('setup-referee-sinon/globals');
 var tempDir = path.join(__dirname, 'temp');
 
 module.exports = function () {
+  var answers = {};
+
+  this.After(function (callback) {
+    answers = {};
+
+    callback();
+  });
+
+  this.Given(/^the project\-name prompt is populated with "([^"]*)"$/, function (projectName, callback) {
+    answers.projectName = projectName;
+
+    callback();
+  });
+
   this.When(/^the generator is run$/, function (callback) {
     helpers.run(path.join( __dirname, '../../../../app'))
       .inDir(tempDir)
-      .withPrompts({'someOption': true})
+      .withPrompts(answers)
       .withOptions({skipInstall: false})
       .on('end', callback);
   });
@@ -56,6 +70,15 @@ module.exports = function () {
 
       sinon.assert.calledWith(timeGruntSpy, gruntSpy);
       sinon.assert.calledWith(loadGruntConfigSpy, gruntSpy);
+
+      callback();
+    });
+  });
+
+
+  this.Then(/^the project\-name of "([^"]*)" is defined in the generated files$/, function (projectName, callback) {
+    fs.readFile(path.join(tempDir, 'package.json'), 'utf8', function (err, content) {
+      assert.equal(projectName, JSON.parse(content).name);
 
       callback();
     });

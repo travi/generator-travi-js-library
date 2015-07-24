@@ -16,6 +16,10 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
     this.copy('git/gitignore', '.gitignore');
   },
 
+  initializing: function () {
+    this.appname = this.appname.replace(/\s+/g, '-');
+  },
+
   prompting: function () {
     var done = this.async();
 
@@ -23,24 +27,20 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
     this.log(yosay('Welcome to the marvelous TraviJsLibrary generator!'));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      name: 'projectName',
+      message: 'What is the name of this project?',
+      default: this.appname
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+      this.projectName = props.projectName;
 
       done();
     }.bind(this));
   },
 
   app: function () {
-    mkdirp('app');
-    mkdirp('app/templates');
-
-    this.copy('_package.json', 'package.json');
+    this.template('_package.json', 'package.json');
     this._grunt();
   },
 
@@ -50,8 +50,6 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
   },
 
   install: function () {
-    var generator = this;
-
     this.npmInstall([
       'grunt',
       'load-grunt-config',
@@ -64,8 +62,8 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
       skipInstall: false,
       skipMessage: false,
       callback: function () {
-        generator.log(yosay('dependency installation complete'));
-      }
+        this.log(yosay('dependency installation complete'));
+      }.bind(this)
     });
   }
 });

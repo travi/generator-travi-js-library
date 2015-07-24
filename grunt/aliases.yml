@@ -5,8 +5,7 @@ integration:
   - clean
   - cucumberjs:integration
 
-test:
-  - integration
+test: integration
 
 default:
   - clean
