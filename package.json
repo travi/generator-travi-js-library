@@ -30,11 +30,11 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "chalk": "~1.0.0",
-    "lodash": "^3.9.3",
+    "chalk": "~1.1.0",
+    "lodash": "^3.10.0",
     "mkdirp": "^0.5.1",
-    "yeoman-generator": "~0.20.1",
-    "yosay": "^1.0.4"
+    "yeoman-generator": "~0.20.2",
+    "yosay": "^1.0.5"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -42,7 +42,7 @@
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-cucumber": "^0.3.0",
     "grunt-mocha-cov": "^0.4.0",
-    "load-grunt-config": "^0.17.1",
+    "load-grunt-config": "^0.17.2",
     "mocha": "^2.2.5",
     "proxyquire": "^1.6.0",
     "referee": "^1.1.1",

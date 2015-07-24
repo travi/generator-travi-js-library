@@ -4,9 +4,7 @@ var fs = require('fs'),
     assert = require('yeoman-generator').assert,
     sinon = require('sinon'),
     proxyquire = require('proxyquire'),
-    _ = require('lodash'),
-
-    timeGruntSpy = sinon.spy();
+    _ = require('lodash');
 
 require('setup-referee-sinon/globals');
 
@@ -41,15 +39,23 @@ module.exports = function () {
   this.Then(/^the core dependencies will be installed$/, function (callback) {
     fs.readFile(path.join(tempDir, 'package.json'), 'utf8', function (err, content) {
       var devDeps = JSON.parse(content).devDependencies,
-          gruntSpy = sinon.spy();
+          gruntSpy = sinon.spy(),
+          timeGruntSpy = sinon.spy(),
+          loadGruntConfigSpy = sinon.spy();
 
       assert(_.has(devDeps, 'grunt'));
       assert(_.has(devDeps, 'load-grunt-config'));
       assert(_.has(devDeps, 'time-grunt'));
 
-      proxyquire('./temp/Gruntfile.js', {'time-grunt': timeGruntSpy});
+      proxyquire('./temp/Gruntfile.js', {
+        'time-grunt': timeGruntSpy,
+        'load-grunt-config': loadGruntConfigSpy
+      });
+
       require('./temp/Gruntfile.js')(gruntSpy);
+
       sinon.assert.calledWith(timeGruntSpy, gruntSpy);
+      sinon.assert.calledWith(loadGruntConfigSpy, gruntSpy);
 
       callback();
     });

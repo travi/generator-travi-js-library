@@ -1,7 +1,9 @@
 lint: jshint
 
 unit: mochacov:unit
-integration: cucumberjs:integration
+integration:
+  - clean
+  - cucumberjs:integration
 
 test:
   - integration

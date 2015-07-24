@@ -50,6 +50,8 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
   },
 
   install: function () {
+    var generator = this;
+
     this.npmInstall([
       'grunt',
       'load-grunt-config',
@@ -62,7 +64,7 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
       skipInstall: false,
       skipMessage: false,
       callback: function () {
-        console.log('dependency installation complete');
+        generator.log(yosay('dependency installation complete'));
       }
     });
   }
