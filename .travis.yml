@@ -12,3 +12,5 @@ before_install:
 before_script: npm install -g grunt-cli
 
 after_success: grunt mochacov:coverage
+
+sudo: false
