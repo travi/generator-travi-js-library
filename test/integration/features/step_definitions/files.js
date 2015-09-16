@@ -83,4 +83,12 @@ module.exports = function () {
       callback();
     });
   });
+
+  this.Then(/^git should ignore certain files by default$/, function (callback) {
+    fs.readFile(path.join(tempDir, '.gitignore'), 'utf8', function (err, content) {
+      assert.equal('node_modules/\n', content);
+
+      callback();
+    });
+  });
 };
