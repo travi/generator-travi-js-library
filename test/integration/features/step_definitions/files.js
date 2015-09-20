@@ -84,6 +84,13 @@ module.exports = function () {
         });
     });
 
+    this.Then(/^the test script is configured$/, function (callback) {
+        fs.readFile(path.join(tempDir, 'package.json'), 'utf8', function (err, content) {
+            assert.equal('grunt', JSON.parse(content).scripts.test);
+
+            callback();
+        });
+    });
 
     this.Then(/^git should ignore certain files by default$/, function (callback) {
         fs.readFile(path.join(tempDir, '.gitignore'), 'utf8', function (err, content) {
