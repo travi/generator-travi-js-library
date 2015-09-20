@@ -8,7 +8,6 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
         this.copy('grunt/_aliases.yml', 'grunt/aliases.yml');
         this.copy('grunt/_jslint.yml', 'grunt/jslint.yml');
         this.copy('grunt/_jscs.yml', 'grunt/jscs.yml');
-        this.copy('jscsrc', '.jscsrc');
     },
 
     _git: function () {
@@ -46,6 +45,7 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
 
     configuring: function () {
         this.copy('editorconfig', '.editorconfig');
+        this.copy('jscsrc', '.jscsrc');
         this._git();
     },
 

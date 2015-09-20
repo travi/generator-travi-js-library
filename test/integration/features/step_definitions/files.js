@@ -95,7 +95,7 @@ module.exports = function () {
 
     this.Then(/^the linter is configured$/, function (callback) {
         fs.readFile(path.join(tempDir, '.jscsrc'), 'utf8', function (err, content) {
-            assert.deepStrictEqual({
+            assert.deepEqual({
                 "validateQuoteMarks": "'",
                 "requireCamelCaseOrUpperCaseIdentifiers": true,
                 "validateLineBreaks": "LF",
