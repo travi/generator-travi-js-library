@@ -42,7 +42,8 @@ module.exports = function () {
             'Gruntfile.js',
             'grunt/aliases.yml',
             'grunt/jslint.yml',
-            'grunt/jscs.yml'
+            'grunt/jscs.yml',
+            '.jscsrc'
         ]);
 
         assert.fileContent('.gitattributes', /^\* text=auto\n$/);
@@ -87,6 +88,21 @@ module.exports = function () {
     this.Then(/^the test script is configured$/, function (callback) {
         fs.readFile(path.join(tempDir, 'package.json'), 'utf8', function (err, content) {
             assert.equal('grunt', JSON.parse(content).scripts.test);
+
+            callback();
+        });
+    });
+
+    this.Then(/^the linter is configured$/, function (callback) {
+        fs.readFile(path.join(tempDir, '.jscsrc'), 'utf8', function (err, content) {
+            assert.deepStrictEqual({
+                "validateQuoteMarks": "'",
+                "requireCamelCaseOrUpperCaseIdentifiers": true,
+                "validateLineBreaks": "LF",
+                "disallowMultipleLineBreaks": true,
+                "maximumLineLength": 120,
+                "requireCapitalizedConstructors": true
+            }, JSON.parse(content));
 
             callback();
         });
