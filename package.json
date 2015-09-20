@@ -42,6 +42,7 @@
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-cucumber": "^0.3.0",
     "grunt-mocha-cov": "^0.4.0",
+    "js-yaml": "^3.4.2",
     "load-grunt-config": "^0.17.2",
     "mocha": "^2.2.5",
     "proxyquire": "^1.6.0",
