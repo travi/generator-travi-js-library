@@ -1,3 +1,5 @@
 lint: jscs
 
 gates: lint
+
+default: gates
