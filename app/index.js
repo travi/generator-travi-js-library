@@ -4,6 +4,7 @@ var yosay = require('yosay');
 
 var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
     nodeVersion: '5.0',
+    npmVersion: '3.3',
 
     _grunt: function () {
         this.copy('grunt/_Gruntfile.js', 'Gruntfile.js');

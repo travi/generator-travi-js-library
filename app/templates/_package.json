@@ -4,7 +4,8 @@
     "test": "grunt"
   },
   "engines": {
-    "node": "<%= nodeVersion %>.x"
+    "node": "<%= nodeVersion %>.x",
+    "npm": "<%= npmVersion %>.x"
   },
   "dependencies": {}
 }

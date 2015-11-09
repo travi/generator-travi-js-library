@@ -99,7 +99,10 @@ module.exports = function () {
                 },
                 function (done) {
                     fs.readFile(path.join(tempDir, 'package.json'), 'utf-8', function (err, content) {
-                        assert.equal(version + '.x', JSON.parse(content).engines.node);
+                        var packageContents = JSON.parse(content);
+
+                        assert.equal(version + '.x', packageContents.engines.node);
+                        assert.equal('3.3.x', packageContents.engines.npm);
 
                         done();
                     })
