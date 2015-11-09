@@ -1,5 +1,6 @@
 var fs = require('fs'),
     path = require('path'),
+    async = require('async'),
     helpers = require('yeoman-generator').test,
     assert = require('yeoman-generator').assert,
     sinon = require('sinon'),
@@ -87,11 +88,25 @@ module.exports = function () {
     });
 
     this.Then(/^the node version is set to "([^"]*)"$/, function (version, callback) {
-        fs.readFile(path.join(tempDir, '.nvmrc'), 'utf-8', function (err, content) {
-            assert.equal('v' + version + '\n', content);
+        async.parallel(
+            [
+                function (done) {
+                    fs.readFile(path.join(tempDir, '.nvmrc'), 'utf-8', function (err, content) {
+                        assert.equal('v' + version + '\n', content);
 
-            callback();
-        });
+                        done();
+                    })
+                },
+                function (done) {
+                    fs.readFile(path.join(tempDir, 'package.json'), 'utf-8', function (err, content) {
+                        assert.equal(version + '.x', JSON.parse(content).engines.node);
+
+                        done();
+                    })
+                }
+            ],
+            callback
+        );
     });
 
     this.Then(/^the test script is configured$/, function (callback) {
