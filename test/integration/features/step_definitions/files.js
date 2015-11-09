@@ -43,7 +43,8 @@ module.exports = function () {
             'grunt/aliases.yml',
             'grunt/jslint.yml',
             'grunt/jscs.yml',
-            '.jscsrc'
+            '.jscsrc',
+            '.nvmrc'
         ]);
 
         assert.fileContent('.gitattributes', /^\* text=auto\n$/);
@@ -80,6 +81,14 @@ module.exports = function () {
     this.Then(/^the project\-name of "([^"]*)" is defined in the generated files$/, function (projectName, callback) {
         fs.readFile(path.join(tempDir, 'package.json'), 'utf8', function (err, content) {
             assert.equal(projectName, JSON.parse(content).name);
+
+            callback();
+        });
+    });
+
+    this.Then(/^the node version is set to "([^"]*)"$/, function (version, callback) {
+        fs.readFile(path.join(tempDir, '.nvmrc'), 'utf-8', function (err, content) {
+            assert.equal('v' + version + '\n', content);
 
             callback();
         });

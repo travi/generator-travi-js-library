@@ -3,6 +3,8 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
 var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
+    nodeVersion: "5.0",
+
     _grunt: function () {
         this.copy('grunt/_Gruntfile.js', 'Gruntfile.js');
         this.copy('grunt/_aliases.yml', 'grunt/aliases.yml');
@@ -40,6 +42,7 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
 
     app: function () {
         this.template('_package.json', 'package.json');
+        this.template('nvmrc', '.nvmrc');
         this._grunt();
     },
 
