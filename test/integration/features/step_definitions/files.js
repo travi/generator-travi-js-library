@@ -72,7 +72,9 @@ module.exports = function () {
             require('./temp/Gruntfile.js')(gruntSpy);
 
             sinon.assert.calledWith(timeGruntSpy, gruntSpy);
-            sinon.assert.calledWith(loadGruntConfigSpy, gruntSpy);
+            sinon.assert.calledWith(loadGruntConfigSpy, gruntSpy, {
+                jitGrunt: {}
+            });
 
             callback();
         });
