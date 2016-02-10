@@ -63,6 +63,7 @@ module.exports = function () {
             assert(_.has(devDeps, 'grunt'));
             assert(_.has(devDeps, 'load-grunt-config'));
             assert(_.has(devDeps, 'time-grunt'));
+            assert(_.has(devDeps, 'grunt-jscs'));
 
             proxyquire('./temp/Gruntfile.js', {
                 'time-grunt': timeGruntSpy,

@@ -1,0 +1,5 @@
+all:
+  src:
+    - "**/*.js"
+  options:
+    config: true

@@ -50,6 +50,7 @@
     "referee": "^1.1.1",
     "referee-sinon": "^1.0.2",
     "setup-referee-sinon": "^0.3.0",
+    "shelljs": "0.6.0",
     "sinon": "^1.15.4",
     "sinon-as-promised": "^4.0.0",
     "time-grunt": "^1.2.1"

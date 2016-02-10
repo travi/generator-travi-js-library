@@ -57,7 +57,8 @@ var TraviJsLibraryGenerator = yeoman.generators.Base.extend({
         this.npmInstall([
             'grunt',
             'load-grunt-config',
-            'time-grunt'
+            'time-grunt',
+            'grunt-jscs'
         ], {'saveDev': true});
 
         this.installDependencies({
